@@ -17,3 +17,18 @@ model ContactForm {
   businessPhoneNumber String? @db.VarChar(200)
   companyEmail        String? @db.VarChar(200)
 }
+
+model LeadForm {
+  id      Int     @id @default(autoincrement()) @db.UnsignedInt
+  name    String? @db.VarChar(200)
+  email   String? @db.VarChar(200)
+  message String? @db.VarChar(2000)
+}
+
+model SubscribedUser {
+  id           Int     @id @default(autoincrement()) @db.UnsignedInt
+  firstName    String? @db.VarChar(200)
+  lastName     String? @db.VarChar(200)
+  email        String? @unique(map: "unique_email") @db.VarChar(200)
+  isSubscribed Int     @default(0) @db.TinyInt
+}
