@@ -9,8 +9,8 @@ const saveContactLead = async (req: any, res: Response) => {
   try {
     const data: {
       organisationName: string;
-      industries: string[];
-      servicesNeeded: string[];
+      industries: string;
+      servicesNeeded: string;
       fullName: string;
       position: string;
       businessPhoneNumber: string;
@@ -42,11 +42,11 @@ const saveContactLead = async (req: any, res: Response) => {
     </p>
     <br />
     <p>
-      Industries: ${data.industries.join(", ")}
+      Industries: ${data.industries.replace("[", "").replace("]", "")}
     </p>
     <br />
     <p>
-      Services Needed: ${data.servicesNeeded.join(", ")}
+      Services Needed: ${data.servicesNeeded.replace("[", "").replace("]", "")}
     </p>
     <br />
     <p>
